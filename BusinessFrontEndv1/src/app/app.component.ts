@@ -6,6 +6,7 @@ import {AfterViewInit,ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { FormGroup,FormBuilder,Validators} from '@angular/forms';
 import {MatAccordion} from '@angular/material/expansion';
 
 @Component({
@@ -15,10 +16,12 @@ import {MatAccordion} from '@angular/material/expansion';
 })
 export class AppComponent implements OnInit{
 
-
+  filterForm !: FormGroup;
   panelOpenState: boolean = false;
 
 
+
+  
 
   title = 'BusinessFrontEndv1';
   displayedColumns: string[] = ['id', 'name', 'lname', 'acn_Number','abn_Number','action'];
@@ -28,11 +31,20 @@ export class AppComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(private dialog : MatDialog, private api : ApiService){
+  constructor(private formBuilder : FormBuilder,private dialog : MatDialog, private api : ApiService){
 
   }
   ngOnInit(): void {
     this.getAllBusiness();
+    this.filterForm =this.formBuilder.group(
+      {
+           name:[''],
+           lname:[''],
+           abn_Number:[''],
+           acn_Number:[''],
+
+      })
+
   }
 
   openDialog() {
@@ -86,7 +98,9 @@ deletebusines(id:number){
 
 
 
-
+clear(){
+  this.filterForm.reset();
+}
 
 
 

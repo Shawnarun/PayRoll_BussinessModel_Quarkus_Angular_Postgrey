@@ -26,37 +26,42 @@
           </mat-panel-description>
       </mat-expansion-panel-header>
   
+      <form [formGroup]="filterForm">
     <div style="display: flex; justify-content: space-between;">  
-      <mat-form-field appearance="fill" >
-        <mat-label>Name</mat-label>
+
+        <mat-form-field appearance="fill" >
+          <mat-label>Name</mat-label>
+          <!-- <input matInput> -->
+          <input formControlName="name" matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+        
+      <mat-form-field appearance="fill">
+        <mat-label>Legal Name</mat-label>
+        <input formControlName="lname" matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
         <!-- <input matInput> -->
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
       </mat-form-field>
       
-    <mat-form-field appearance="fill">
-      <mat-label>Legal Name</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-      <!-- <input matInput> -->
-    </mat-form-field>
-    
-    <mat-form-field appearance="fill">
-      <mat-label>ABN</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-      <!-- <input matInput> -->
-    </mat-form-field>
-    
-    <mat-form-field appearance="fill">
-      <mat-label>ACN</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-      <!-- <input matInput> -->
-    </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>ABN</mat-label>
+        <input formControlName="abn_Number" matInput (keyup)="applyFilter($event)" placeholder="Ex. 13456" #input>
+        <!-- <input matInput> -->
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>ACN</mat-label>
+        <input formControlName="acn_Number" matInput (keyup)="applyFilter($event)" placeholder="Ex. 466546" #input>
+        <!-- <input matInput> -->
+      </mat-form-field>
+   
+     
   </div>
+</form>
 
 
       <mat-action-row>
         <button mat-stroked-button color="primary" (click)="mep.toggle()">Hide Filters</button>
-        <button mat-stroked-button color="primary">Reset Filters</button>
-        <button mat-stroked-button color="primary" >Clear Filters</button>
+        <button mat-stroked-button color="primary" (click)="getAllBusiness()">Reset Filters</button>
+        <button mat-stroked-button color="primary" (click)="clear()">Clear Filters</button>
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
