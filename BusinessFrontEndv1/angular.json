@@ -64,7 +64,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+        
           "configurations": {
+          
             "production": {
               "browserTarget": "BusinessFrontEndv1:build:production"
             },

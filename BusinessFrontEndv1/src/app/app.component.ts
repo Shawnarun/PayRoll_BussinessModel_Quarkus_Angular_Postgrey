@@ -6,6 +6,7 @@ import {AfterViewInit,ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatAccordion} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,12 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+
+
+  panelOpenState: boolean = false;
+
+
+
   title = 'BusinessFrontEndv1';
   displayedColumns: string[] = ['id', 'name', 'lname', 'acn_Number','abn_Number','action'];
   dataSource!: MatTableDataSource<any>;
