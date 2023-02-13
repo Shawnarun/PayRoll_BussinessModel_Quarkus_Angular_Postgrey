@@ -48,25 +48,28 @@ actionbtn : String = "Save"
 
  addBusiness(){
     if(!this.editData)
-    if(this.businessForm.valid){
-      this.api.postBusiness(this.businessForm.value)
-      .subscribe({
-       next:(res)=>{
-         alert("Business added");
-         this.businessForm.reset();
-         this.dialogRef.close('save');
-       },
-       error:()=>{
-         alert("Error");
-       }
-      })
+     {
+      if(this.businessForm.valid){
+        this.api.postBusiness(this.businessForm.value)
+        .subscribe({
+         next:(res)=>{
+           alert("Business added");
+           this.businessForm.reset();
+           this.dialogRef.close('save');
+         },
+         error:()=>{
+           alert("Error");
+         }
+        })
+      }
     }
-    else{
-      this.updateBusiness()
+      else{
+        this.updateBusiness()
+      }
+     
     }
-    }
-
-    updateBusiness(){
+    
+  updateBusiness(){
   this.api.putProduct(this.businessForm.value,this.editData.id)
   .subscribe({
     next:(res)=>{

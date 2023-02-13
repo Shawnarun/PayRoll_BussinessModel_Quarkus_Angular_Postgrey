@@ -42,13 +42,13 @@
       </mat-form-field>
       
       <mat-form-field appearance="fill">
-        <mat-label>ABN</mat-label>
+        <mat-label>ACN</mat-label>
         <input formControlName="abn_Number" matInput (keyup)="applyFilter($event)" placeholder="Ex. 13456" #input>
         <!-- <input matInput> -->
       </mat-form-field>
       
       <mat-form-field appearance="fill">
-        <mat-label>ACN</mat-label>
+        <mat-label>ABN</mat-label>
         <input formControlName="acn_Number" matInput (keyup)="applyFilter($event)" placeholder="Ex. 466546" #input>
         <!-- <input matInput> -->
       </mat-form-field>
@@ -111,7 +111,7 @@
 
   <!-- Fruit Column -->
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> s </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
     <td mat-cell *matCellDef="let row"> 
       <button mat-icon-button color="primary" (click)="editBusiness(row)" >
         <mat-icon>edit</mat-icon>

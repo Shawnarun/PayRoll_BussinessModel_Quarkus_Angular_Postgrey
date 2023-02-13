@@ -118,11 +118,11 @@ public class BusinessResource {
 
 
     @PUT
-    @Path("/update/")
+    @Path("/update/{id}")
     @Transactional
-    public Response updateBusiness(BusinessUpdateDTO businessUpdateDTO) {
+    public Response updateBusiness(BusinessUpdateDTO businessUpdateDTO, @PathParam("id") Long id) {
         return businessRepository
-                .findByIdOptional(businessUpdateDTO.getId())
+                .findByIdOptional(id)
                 .map(
                         businessToUpdate -> {
                             Business businessUpdated = mapper2.toDAO(businessUpdateDTO);

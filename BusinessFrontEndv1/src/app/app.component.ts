@@ -50,7 +50,7 @@ export class AppComponent implements OnInit{
     this.dialog.open(DialogComponent, {
       width:'30%'
     }).afterClosed().subscribe(val=>{
-      if(val=='save'){
+      if(val==='save'){
         this.getAllBusiness();
       }
     })
@@ -106,10 +106,11 @@ this.dialog.open(DialogComponent
   ,{
     width:"30%",
     data:row
+  }).afterClosed().subscribe(val=>{
+    if(val ==='update'){
+      this.getAllBusiness();
+    }
   })
-
-
-
 }
 
 }

@@ -24,7 +24,7 @@ deleteProduct(id:number){
 
 
 putProduct(data:any, id:number){
-  return this.http.put<any>("http://localhost:8081/api/v1/business/update/"+ id, data);
+  return this.http.put<any>("http://localhost:8081/api/v1/business/update/"+id, data);
 }
 
 }
