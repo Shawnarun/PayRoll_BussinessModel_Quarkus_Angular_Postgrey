@@ -21,7 +21,6 @@ export class AppComponent implements OnInit{
 
 
 
-  
 
   title = 'BusinessFrontEndv1';
   displayedColumns: string[] = ['id', 'name', 'lname', 'acn_Number','abn_Number','action'];
@@ -102,6 +101,15 @@ clear(){
   this.filterForm.reset();
 }
 
+editBusiness(row : any){
+this.dialog.open(DialogComponent
+  ,{
+    width:"30%",
+    data:row
+  })
 
+
+
+}
 
 }

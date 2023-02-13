@@ -22,4 +22,9 @@ deleteProduct(id:number){
   return this.http.delete<any>("http://localhost:8081/api/v1/business/delete/"+id);
 }
 
+
+putProduct(data:any, id:number){
+  return this.http.put<any>("http://localhost:8081/api/v1/business/update/"+ id, data);
+}
+
 }
